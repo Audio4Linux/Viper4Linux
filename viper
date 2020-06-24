@@ -5,6 +5,8 @@ fallbackconfigpath=/etc/viper4linux
 if ! [ -d "$configpath" ]; then configpath="$fallbackconfigpath"; fi
 audiofile=$configpath/audio.conf
 devicefile=$configpath/devices.conf
+originalvolumefile=$configpath/originalvolume.conf
+originalsinkfile=$configpath/originalsink.conf
 tmppath=/tmp/viper4linux
 idfile=$tmppath/sinkid.tmp
 if [ -f $idfile ]; then oldid=$(< $idfile); fi
@@ -29,6 +31,14 @@ start () {
 	fi
 	idnum=$(pactl load-module module-null-sink sink_name=$vipersink sink_properties=device.description="Viper4Linux")
 	echo $idnum > $idfile
+
+    # Courtesy of https://unix.stackexchange.com/questions/132230/read-out-pulseaudio-volume-from-commandline-i-want-pactl-get-sink-volume
+    echo "Storing original sink data..."
+    sink=$( pactl list short sinks | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,' | head -n 1 )
+    volume=$( pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $sink + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' )
+    echo $location > $originalsinkfile
+    echo $volume > $originalvolumefile
+    
 	echo "Setting original sink to full volume..."
 	pactl set-sink-volume $location 1.0
 	echo "Changing primary sink to Viper..."
@@ -48,6 +58,17 @@ stop () {
 		rm $pidfile && pidcanary="Deleted pidfile."
 		echo "$murdercanary $pidcanary"
         fi
+      
+        if [[ -f $originalsinkfile  && -f $originalvolumefile ]]; then
+          location=$(<$originalsinkfile)
+          volume=$(<$originalvolumefile)
+          fixedvolume="${volume}%"
+          pactl set-sink-volume $location $fixedvolume
+          rm $originalsinkfile
+          rm $originalvolumefile
+          echo "Reset original sink volume."
+        fi 
+
         if [ -f $idfile ]; then
                 pactl unload-module $oldid
 		rm $idfile
