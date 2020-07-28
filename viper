@@ -35,7 +35,7 @@ start () {
     # Courtesy of https://unix.stackexchange.com/questions/132230/read-out-pulseaudio-volume-from-commandline-i-want-pactl-get-sink-volume
     echo "Storing original sink data..."
     sink=$( pactl list short sinks | grep $location | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,')
-    volume=$( pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $sink + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' )
+    volume=$( pactl list sinks | grep '^[[:space:]]Volume:' | head -n "$sink" | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' )
     echo $location > $originalsinkfile
     echo $volume > $originalvolumefile
     
