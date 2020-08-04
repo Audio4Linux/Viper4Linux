@@ -3,8 +3,6 @@ Making Loonix sound good.
 
 This is the second interation of Viper4Linux and aims to focus on features and end-user ease. If you are interested in the original (and still maintained) version, check out [Viper4Linux](https://github.com/noahbliss/Viper4Linux) under my personal account.  
 
-_Most of this document was copied verbatim from that project. The information here will be updated more earnestly when this version is usable. Stay tuned._  
-
 Disclaimer:  
 I am not associated with the awesome mates over at Viper. I wish I was, but it is what it is. (Jason, you're particularly awesome.)  You can find their git here: https://github.com/vipersaudio  and their site here: http://vipersaudio.com/blog/  
 
