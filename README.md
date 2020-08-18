@@ -84,10 +84,9 @@ Step 3:
   Build the gstreamer plugin.  
 
     cd gst-plugin-viperfx  
-    ./autogen.sh  
-    make  
-    cd src/.libs
-    # Don't ask me why it is built into a hidden directory >.<
+	cmake -B build -S .
+	make -C build
+    cd build
   
   You now need to install the plugin. The install path is different on different systems. On my Debian, it was located at /usr/lib/x86_64-linux-gnu/gstreamer-1.0/. Yours should have a ton of libgst*.so files in it.  
 
