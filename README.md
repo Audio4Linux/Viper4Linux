@@ -76,8 +76,8 @@ Step 1:
 Step 2:  
   Get this software and their software, and more of their software...  
   
-    git clone https://github.com/noahbliss/Viper4Linux.git  
-    git clone https://github.com/noahbliss/gst-plugin-viperfx  
+    git clone https://github.com/Audio4Linux/Viper4Linux.git  
+    git clone https://github.com/Audio4Linux/gst-plugin-viperfx  
     git clone https://github.com/vipersaudio/viperfx_core_binary.git  
   
 Step 3:  
@@ -87,7 +87,7 @@ Step 3:
     ./autogen.sh  
     make  
     cd src/.libs
-    #Don't ask me why it is built into a hidden directory >.<
+    # Don't ask me why it is built into a hidden directory >.<
   
   You now need to install the plugin. The install path is different on different systems. On my Debian, it was located at /usr/lib/x86_64-linux-gnu/gstreamer-1.0/. Yours should have a ton of libgst*.so files in it.  
 
