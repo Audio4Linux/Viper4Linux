@@ -1,7 +1,7 @@
 # Viper4Linux - An Adaptive Digital Sound Processor
 Making Loonix sound good.  
 
-This is the second interation of Viper4Linux and aims to focus on features and end-user ease. If you are interested in the original (and still maintained) version, check out [Viper4Linux](https://github.com/noahbliss/Viper4Linux) under my personal account.  
+This is the second interation of Viper4Linux and aims to focus on features and end-user ease.  
 
 Disclaimer:  
 I am not associated with the awesome mates over at Viper. I wish I was, but it is what it is. (Jason, you're particularly awesome.)  You can find their git here: https://github.com/vipersaudio  and their site here: http://vipersaudio.com/blog/  
