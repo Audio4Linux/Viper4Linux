@@ -54,7 +54,7 @@ Step 1:
   
   For Debian:  
   
-    sudo apt install build-essential git autoconf libtool gstreamer-1.0 libgstreamer-plugins-base1.0-dev
+    sudo apt install build-essential git cmake gstreamer-1.0 libgstreamer-plugins-base1.0-dev
     
   For Arch:  
   
@@ -62,7 +62,7 @@ Step 1:
   
   For Ubuntu the following packages are reported to be needed:  
   
-    sudo apt install build-essential git autoconf automake autopoint libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev  
+    sudo apt install build-essential git autoconf automake autopoint libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-tools
   
   For Solus the following packages are reported to be needed:  
   
@@ -84,9 +84,8 @@ Step 3:
   Build the gstreamer plugin.  
 
     cd gst-plugin-viperfx  
-	cmake -B build -S .
-	make -C build
-    cd build
+    cmake .
+    make
   
   You now need to install the plugin. The install path is different on different systems. On my Debian, it was located at /usr/lib/x86_64-linux-gnu/gstreamer-1.0/. Yours should have a ton of libgst*.so files in it.  
 
