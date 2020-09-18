@@ -18,7 +18,7 @@ We have a package for Arch.
 
     yay -S viper4linux-git  
     
-We also have a package for the GUI! check it out at https://github.com/ThePBone/Viper4Linux-GUI.
+We also have a package for the GUI! check it out at https://github.com/Audio4Linux/Viper4Linux-GUI.
 
   Stable package:
     
@@ -42,7 +42,7 @@ Now you're ready to install viper4linux.
 
     sudo zypper in gstreamer-plugins-viperfx libviperfx viper4linux
     
-There is also a package for the stable releases of the GUI (https://github.com/ThePBone/Viper4Linux-GUI).  
+There is also a package for the stable releases of the GUI (https://github.com/Audio4Linux/Viper4Linux-GUI).  
 
     sudo zypper in viper4linux-gui
 
@@ -129,7 +129,7 @@ Step 6:
     
 # Configuration  
 
-We have a GUI made by ThePBone which is available here: https://github.com/ThePBone/Viper4Linux-GUI  
+We have a GUI made by ThePBone which is available here: https://github.com/Audio4Linux/Viper4Linux-GUI  
 
 Most of your configuration will be done in ~/.config/viper4linux with the following two files:  
   
