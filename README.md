@@ -52,17 +52,13 @@ Step 1:
   Get the build-essential or similar package installed. You will be compiling their gstreamer plugin.  
   You will also need gstreamer-1.0 (not gstreamer, and not gstreamer-0.10).  
   
-  For Debian:  
+  For Debian/Ubuntu:  
   
-    sudo apt install build-essential git cmake gstreamer-1.0 libgstreamer-plugins-base1.0-dev
+    sudo apt install build-essential git cmake libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev gstreamer1.0-tools
     
   For Arch:  
   
     sudo pacman -S base-devel git gst-plugins-good 
-  
-  For Ubuntu the following packages are reported to be needed:  
-  
-    sudo apt install build-essential git autoconf automake autopoint libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-tools
   
   For Solus the following packages are reported to be needed:  
   
