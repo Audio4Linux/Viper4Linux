@@ -94,7 +94,7 @@ Step 3:
     
   The rest of it:  
   
-    cd ../../.. #I think that should get us back to our main git directory.
+    cd .. #I think that should get us back to our main git directory.
     #Now test it with gst-inspect-1.0
     gst-inspect-1.0 viperfx
     
