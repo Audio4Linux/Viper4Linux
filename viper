@@ -71,7 +71,7 @@ stop () {
                 pactl unload-module $oldid
 		if [ -f $outidfile ]; then pactl unload-module $oldoutid; fi
 		rm "$idfile"
-		rm "$oldidfile"
+		rm "$outidfile"
 		echo "Unloaded Viper sink."
 		defsink=$(LANG=C pactl info | grep "Default Sink" | awk -F ": " '{print $2}')
 		pactl set-sink-volume $defsink "${volume}%"
