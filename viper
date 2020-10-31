@@ -57,7 +57,7 @@ start () {
 stop () {
 	defsink=$(LANG=C pactl info | grep "Default Sink" | awk -F ": " '{print $2}')
 	if [ "$defsink" == "$vipersink" ]; then
-		sink=$(LANG=C pactl list short sinks | grep $defsink | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,')
+		sink=$(LANG=C pactl list short sinks | grep $defsink | head -n1 | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,') # This is poor logic. Consider rewriting. 
 		volume=$(LANG=C pactl list sinks | grep '^[[:space:]]Volume:' | head -n "$sink" | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
 		pactl set-sink-volume $origdevice "${volume}%"
 		rm "$devicetempfile"
