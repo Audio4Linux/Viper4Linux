@@ -3,6 +3,8 @@ Making Loonix sound good.
 
 This is the second interation of Viper4Linux and aims to focus on features and end-user ease.  
 
+## WARNING: This is the sinkhole-daisychain branch. It will not result in working audio without manual final routing. You have been warned!  
+
 Disclaimer:  
 I am not associated with the awesome mates over at Viper. I wish I was, but it is what it is. (Jason, you're particularly awesome.)  You can find their git here: https://github.com/vipersaudio  and their site here: http://vipersaudio.com/blog/  
 
