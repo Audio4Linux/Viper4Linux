@@ -63,16 +63,12 @@ stop () {
 		echo "$murdercanary $pidcanary"
         fi
         if [ -f $idfile ]; then
-                pactl unload-module $oldid
+             e   pactl unload-module $oldid
 		rm "$idfile"
 		echo "Unloaded Viper sink."
 		defsink=$(LANG=C pactl info | grep "Default Sink" | awk -F ": " '{print $2}')
 		pactl set-sink-volume $defsink "${volume}%"
         fi
-}
-
-restart () {
-	start
 }
 
 status () {
@@ -94,4 +90,19 @@ status () {
 	echo "$pidfilestatus $pidstatus"
 	echo "$idfilestatus"
 }
-$@
+
+case $@ in
+	start|restart)
+		start
+		;;
+	stop)
+		stop
+		;;
+	status)
+		status
+		;;
+	*)
+		echo "Gotta specify an action my dude." 
+		echo "viper [ start | stop | restart | status ]"
+		;;
+esac
