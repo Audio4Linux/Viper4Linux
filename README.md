@@ -46,6 +46,14 @@ There is also a package for the stable releases of the GUI (https://github.com/A
 
     sudo zypper in viper4linux-gui
 
+### Ubuntu
+In Ubuntu, the install process can be automated if you use Pacstall (install instructions at https://github.com/Henryws/pacstall).
+To install it, just use
+
+    sudo pacstall -I viper4linux
+
+Pacstall will take care of installing all the dependencies an will set up viper4linux.
+
 ## Manually
 
 Step 1:  
