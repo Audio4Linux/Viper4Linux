@@ -167,6 +167,15 @@ I did encounter an issue where audio would become intermittently choppy. If you 
 
   `load-module module-udev-detect tsched=0`  
 
+# Choppy and glitchy audio on pipewire
+Using viper with pipewire might result in audio skipping and glitching out while playing anything.
+To fix this add these lines to your pipewire.conf (usually stored in `~/.config/pipewire`).
+```
+default.clock.allowed-rates = [ 44100 48000 ]  # This changes allowed audio sample rates to 44100hz and 48000hz.
+api.alsa.headroom     = 1024 # This changes the alsa required headroom to 1024 ms
+pulse.min.req = 1024/48000 # This changes the minimum amount of audio information that is provided to pulse, this slightly increases latency but it is necessary.
+
+```
 # Final Notes  
 I am not a great developer, just tossing this out there and if someone finds it useful, I will be happy. If you have improvements, please submit a DETAILED pull request. Everyone benefits from shared expertise. Thanks!  
 
